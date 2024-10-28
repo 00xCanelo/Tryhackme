@@ -103,8 +103,8 @@
 
 <img src="./Images/Screenshot%202024-10-28%20152324.png"></img>
 
-<h1>Useful links:</h1>
+<h2>Useful links:</h2>
 <h3>If you didn’t find the exploit for the wordpress this is the link: </h3>
-<h4><a href="https://www.exploit-db.com/exploits/50082">exploit</a></h4>
+<h4><a href="https://www.exploit-db.com/exploits/50082">Wordpress Exploit</a></h4>
 
-Thank you for viewing my writeup made by: 00xCanelo
+<h1>Thank you for viewing my writeup made by: <a href="https://tryhackme.com/r/p/00xCanelo">00xCanelo</a></h1>
