@@ -1,7 +1,7 @@
 This is Mountaineer lab in tryhackme this lab is Hard 
 There are other way that is more easier I chose the long road to help you improve in penetration testing
-<img src="./Images/Screenshot%202024-10-28%20140042.png"></img>
 First we start with nmap scan to all ports
+<img src="./Images/Screenshot%202024-10-28%20140042.png"></img>
 
 We need to create the Mountaineer.thm in the /etc/hosts in the kali linux to edit it you need to have the root permission  
  
