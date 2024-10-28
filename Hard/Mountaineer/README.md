@@ -1,10 +1,12 @@
-This is Mountaineer lab in tryhackme this lab is Hard 
-There are other way that is more easier I chose the long road to help you improve in penetration testing
-First we start with nmap scan to all ports
+<p>This is Mountaineer lab in tryhackme this lab is Hard </p>
+<p>There are other way that is more easier I chose the long road to help you improve in penetration testing</p>
+<p>First we start with nmap scan to all ports</p>
 <img src="./Images/Screenshot%202024-10-28%20140042.png"></img>
-
-We need to create the Mountaineer.thm in the /etc/hosts in the kali linux to edit it you need to have the root permission  
- 
+<img src="./Images/Screenshot%202024-10-28%20140212.png"></img>
+<img src="./Images/Screenshot%202024-10-28%20140428.png"></img>
+<img src="./Images/Screenshot%202024-10-28%20140626.png"></img>
+<p>We need to create the Mountaineer.thm in the /etc/hosts in the kali linux to edit it you need to have the root permission </p>
+<img src="./Images/Screenshot%202024-10-28%20140846.png"></img>
 This is a wordpress site so we can start scanning for vulns using wpscan 
 
  
