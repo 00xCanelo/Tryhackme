@@ -1,163 +1,91 @@
-# 🌌 [WhiteRose Lab Writeup](https://tryhackme.com/r/room/whiterose) 🌌  
-**This is a free TryHackMe lab identified as an Easy Lab**
+# 🌹 [WhiteRose Lab Writeup](https://tryhackme.com/r/room/whiterose) 🌹  
+**This is a free TryHackMe lab classified as an Easy Lab.**
 
 ---
 
-## 🔥 **Lab Overview**  
-> _In my point of view i think this room is a medium no easy_
+## 📝 **Lab Overview**  
+> _In my assessment, this room presents challenges that align more closely with a Medium difficulty level rather than Easy._
 
 ---
 
-### 🔍 **Recon**  
-> **Starting with a basic nmap scan:**
+### 🕵️ **Reconnaissance**  
+> **Commencing with a preliminary Nmap scan:**
 
-![](./Images/Screenshot%202024-11-01%20181024.png)
-![](./Images/Screenshot%202024-11-01%20181240.png)
-![](./Images/Screenshot%202024-10-28%20140428.png)
-![](./Images/Screenshot%202024-10-28%20140626.png)
-
----
-
-### 📂 **Hosts File Update**  
-We need to add `Mountaineer.thm` to `/etc/hosts` on Kali Linux with root permissions.
-
-![](./Images/Screenshot%202024-10-28%20140846.png)
-![](./Images/Screenshot%202024-10-28%20140955.png)
+![](./Images/Screenshot%202024-11-01%20181024.png)  
+![](./Images/Screenshot%202024-11-01%20181240.png)  
+![](./Images/Screenshot%202024-11-01%20181350.png)  
+![](./Images/Screenshot%202024-11-01%20181516.png)
 
 ---
 
-### 🔐 **WordPress Vulnerability Scan**  
-Since this is a WordPress site, we can start scanning for vulnerabilities using WPScan.
+### 📋 **Hosts File Configuration**  
+We need to add `admin.cyprusbank.thm` to `/etc/hosts` on Kali Linux with root permissions.
 
-![](./Images/Screenshot%202024-10-28%20141051.png)
-![](./Images/Screenshot%202024-10-28%20141138.png)
-![](./Images/Screenshot%202024-10-28%20141349.png)
+![](./Images/Screenshot%202024-11-01%20181609.png)
 
 ---
 
-### 🔍 **Directory Search**  
-> Conducting a simple directory search in the WordPress directory.
+### 🌐 **Website Reconnaissance**  
+We will proceed to log in using the credentials provided in the room description.
 
-![](./Images/Screenshot%202024-10-28%20141509.png)
-![](./Images/Screenshot%202024-10-28%20142428.png)
-![](./Images/Screenshot%202024-10-28%20142519.png)
-![](./Images/Screenshot%202024-10-28%20142637.png)
+![](./Images/Screenshot%202024-11-01%20181640.png)  
+![](./Images/Screenshot%202024-11-01%20181708.png)  
+![](./Images/Screenshot%202024-11-01%20182034.png)
 
----
-
-### 📂 **Hosts Update for Admin Access**  
-Add `adminroundcubemail.thm` to `/etc/hosts` like this:
-
-![](./Images/Screenshot%202024-10-28%20142737.png)
-![](./Images/Screenshot%202024-10-28%20143914.png)
+### **The telephone number is not visible, possibly due to insufficient access rights.**
+### **Let’s explore the possibility of locating another user with elevated privileges.**
 
 ---
 
-### 🔑 **Login**  
-Using `k2:k2` to bypass brute force for login.
+### 🔍 **Admin User Discovery**  
 
-![](./Images/Screenshot%202024-10-28%20144156.png)
-
----
-
-### 🔑 **Admin Credentials Found**  
-Found credentials to log in to `/wp-admin` with username `k2`.
-
-![](./Images/Screenshot%202024-10-28%20144021.png)
+![](./Images/Screenshot%202024-11-01%20182126.png)  
+![](./Images/Screenshot%202024-11-01%20182324.png)
 
 ---
 
-### 🔐 **Logging in as k2 User**  
+### 🐞 **Exploring Vulnerabilities for Access**  
 
-![](./Images/Screenshot%202024-10-28%20144443.png)
-
----
-
-### 🛠️ **Exploring WordPress Plugins**  
-> The `modern-events-calendar-lite` plugin is outdated at version 6.5.6. A small search will reveal the exploit; please search to help improve your skills.
-
-![](./Images/Screenshot%202024-10-28%20145206.png)
-![](./Images/Screenshot%202024-10-28%20145256.png)
-
----
-
-### 🔄 **Setting Up Reverse Shell**  
-Creating a reverse shell on port 443; tools like a reverse shell generator can help.
-
-![](./Images/Screenshot%202024-10-28%20145521.png)
-![](./Images/Screenshot%202024-10-28%20145648.png)
+![](./Images/Screenshot%202024-11-01%20182550.png)  
+![](./Images/Screenshot%202024-11-01%20182637.png)  
+![](./Images/Screenshot%202024-11-01%20182753.png)  
+![](./Images/Screenshot%202024-11-01%20182824.png)  
+![](./Images/Screenshot%202024-11-01%20182950.png)  
+![](./Images/Screenshot%202024-11-01%20183355.png)  
+![](./Images/Screenshot%202024-11-01%20183758.png)  
+![](./Images/Screenshot%202024-11-01%20183928.png)  
+![](./Images/Screenshot%202024-11-01%20184233.png)
 
 ---
 
-### 🖥️ **Searching through the Machine**  
+### 🚀 **Achieving Initial Access**  
+This machine is susceptible to EJS Server-Side Template Injection (SSTI). We can utilize the following method to establish a reverse shell.
 
-![](./Images/Screenshot%202024-10-28%20145807.png)
-
----
-
-### 🗄️ **Finding Interesting Files**  
-Discovered a `Backup.kdbx` file.
-
-![](./Images/Screenshot%202024-10-28%20145854.png)
-
+![](./Images/Screenshot%202024-11-01%20185227.png)  
+![](./Images/Screenshot%202024-11-01%20185415.png)  
+![](./Images/Screenshot%202024-11-01%20185610.png)  
+![](./Images/Screenshot%202024-11-01%20185644.png)  
+![](./Images/Screenshot%202024-11-01%20185856.png)
 
 ---
 
-### 🛠️ **Reverse Shell for Backup.kdbx Transfer**  
-![](./Images/Screenshot%202024-10-28%20150008.png)
-![](./Images/Screenshot%202024-10-28%20151122.png)
+### 👑 **Capturing the Root Flag**  
 
+![](./Images/Screenshot%202024-11-01%20185935.png)  
+![](./Images/Screenshot%202024-11-01%20190421.png)
 
----
+### **We can now access the root flag without root privileges.**
+### **To do this, we will change the `/etc/shadow` to `/root/root.txt`.**
 
-### 📜 **Generating Password Lists**  
-Creating custom password lists with `cupp` using information from emails.
-
-![](./Images/Screenshot%202024-10-28%20151512.png)
-![](./Images/Screenshot%202024-10-28%20151525.png)
+![](./Images/Screenshot%202024-11-01%20191019.png)
 
 ---
 
-### 🔓 **Cracking the Backup.kdbx File**  
-
-![](./Images/Screenshot%202024-10-28%20151135.png)
-![](./Images/Screenshot%202024-10-28%20151702.png)
-
----
-
-### 🔑 **Password Found for kdbx File**  
-Using `kpcli` to open the `.kdbx` file.
-![](./Images/Screenshot%202024-10-28%20151851.png)
+## 📚 **Useful Resources**  
+- [EJS, Server-side Template Injection RCE (CVE-2022-29078)](https://eslam.io/posts/ejs-server-side-template-injection-rce/)
+- [Sudoedit Bypass (CVE-2023-22809)](https://www.vicarius.io/vsociety/posts/cve-2023-22809-sudoedit-bypass-analysis)
 
 ---
 
-### 🔑 **SSH Access**  
-Found SSH credentials to access the machine.
-
-![](./Images/Screenshot%202024-10-28%20151954.png)
-![](./Images/Screenshot%202024-10-28%20152028.png)
-![](./Images/Screenshot%202024-10-28%20152135.png)
-
----
-
-### 📂 **Analyzing Bash History**  
-Discovered the root password in `.bash_history`.
-
-![](./Images/Screenshot%202024-10-28%20152212.png)
-
----
-
-### 🏆 **Root Access Achieved**  
-Using the root password to retrieve the root flag.
-
-![](./Images/Screenshot%202024-10-28%20152324.png)
-
----
-
-## 🔗 **Useful Links**  
-- [WordPress Exploit for version 6.5.6](https://www.exploit-db.com/exploits/50082)
-
----
-
-# 🙏 **Thank You for Viewing My Writeup!**  
-Writeup by: [00xCanelo](https://tryhackme.com/r/p/00xCanelo)
+# 💡 **Thank You for Reading!**  
+### **Writeup by: [00xCanelo](https://tryhackme.com/r/p/00xCanelo)**
