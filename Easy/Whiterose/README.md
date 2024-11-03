@@ -76,7 +76,7 @@ This machine is susceptible to EJS Server-Side Template Injection (SSTI). We can
 
 ### **We can now access the root flag without root privileges.**
 ### **To do this, we will change the `/etc/shadow` to `/root/root.txt`.**
-### **You can also view the `/etc/shadow` and use hashcat or john to get the root password, But i chose the easiest way **
+### You can also view the `/etc/shadow` and use hashcat or john to get the root password, But i chose the easiest way.
 
 ![](./Images/Screenshot%202024-11-01%20191019.png)
 
